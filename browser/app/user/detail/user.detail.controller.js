@@ -1,6 +1,14 @@
 'use strict';
 
-app.controller('UserDetailCtrl', function ($scope, user, Story) {
+app.controller('UserDetailCtrl', function ($scope, user, Story, currentUser) {
+	$scope.currentUserTest = function () {
+		console.log(currentUser.name);
+		if (user._id !== currentUser.name) {
+			return false
+		} else {
+			return true;
+		}
+	}
 	$scope.user = user;
 	$scope.newStory = new Story({author: $scope.user});
 	$scope.addStory = function () {

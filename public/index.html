@@ -30,25 +30,38 @@
 
     <!--local JS dependencies-->
     <script src="/browser/app/main.js"></script>
+    <!-- *****Directives******* -->
     <script src="/browser/utils/eat-click.directive.js"></script>
-    <script src="/browser/components/navbar/navbar.directive.js"></script>
     <script src="/browser/components/footer/footer.directive.js"></script>
+    <script src="/browser/components/navbar/navbar.directive.js"></script>
     <script src="/browser/components/oauth-button/oauth-button.directive.js"></script>
     <script src="/browser/utils/contenteditable/contenteditable.directive.js"></script>
+    <script src="/browser/app/user/item/user.item.directive.js"></script>
+    
+    <!-- *****Controllers******* -->
+    <script src="/browser/app/user/list/user.list.controller.js"></script>
+    <script src="/browser/app/user/detail/user.detail.controller.js"></script>
+    <script src="/browser/app/story/list/story.list.controller.js"></script>
+    <script src="/browser/app/story/detail/story.detail.controller.js"></script>
+    <script src="/browser/app/login/login.controller.js"></script>
+    <script src="/browser/app/signup/signup.controller.js"></script>
+
+    <!-- *****States******* -->
     <script src="/browser/app/home/home.state.js"></script>
     <script src="/browser/app/signup/signup.state.js"></script>
     <script src="/browser/app/login/login.state.js"></script>
-    <script src="/browser/app/user/user.factory.js"></script>
     <script src="/browser/app/user/list/user.list.state.js"></script>
-    <script src="/browser/app/user/list/user.list.controller.js"></script>
-    <script src="/browser/app/user/item/user.item.directive.js"></script>
     <script src="/browser/app/user/detail/user.detail.state.js"></script>
-    <script src="/browser/app/user/detail/user.detail.controller.js"></script>
     <script src="/browser/app/story/list/story.list.state.js"></script>
-    <script src="/browser/app/story/list/story.list.controller.js"></script>
-    <script src="/browser/app/story/detail/story.detail.controller.js"></script>
     <script src="/browser/app/story/detail/story.detail.state.js"></script>
+
+    <!-- *****Factories******* -->
+    <script src="/browser/app/user/user.factory.js"></script>
     <script src="/browser/app/story/story.factory.js"></script>
+    <script src="/browser/app/authFactory.js"></script>
+
+
+
 </head>
 <body ng-app="auther">
 	<navbar></navbar>

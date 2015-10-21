@@ -2,6 +2,19 @@
 
 var app = require('express')();
 var path = require('path');
+var session = require('express-session');
+
+app.use(session({
+    // this mandatory configuration ensures that session IDs are not predictable
+    secret: 'tongiscool',
+    cookie: {maxAge: 1000000}
+}));
+
+app.use(function (req, res, next) {
+ console.log(req.session.userId)
+ next();
+});
+
 
 app.use(require('./logging.middleware'));
 
