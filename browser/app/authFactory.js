@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('AuthFactory', function ($http, currentUser) {
+app.factory('AuthFactory', function ($http, currentUser, $state) {
 	
 	return {
 		signup: function (email, password) {
@@ -20,9 +20,24 @@ app.factory('AuthFactory', function ($http, currentUser) {
 		logout: function () {
 			return $http.get('/api/users/logout')
 			.then(function () {
-				console.log('logout function')
+				currentUser.name = null; 
 			})
+		},
+		getCurrentUser: function () {
+			return $http.get('/api/users/auth/me') 
+			.then(function (userId) {
+				return userId.data
+			})
+		},
+		setCurrentUser: function () {
+			this.getCurrentUser().then(function (userId) {
+				currentUser.name = userId;
+			})
+		},
+		goHome: function () {
+			$state.go('home')
 		}
+
 	}
 });
 

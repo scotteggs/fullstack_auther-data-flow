@@ -34,7 +34,7 @@ router.post('/', function (req, res, next) {
 
 router.get('/logout', function (req, res, next) {
 	req.session.destroy();
-	res.status(200).send('successfully logged out');
+	res.redirect('/');
 })
 
 router.get('/:id', function (req, res, next) {
@@ -50,11 +50,9 @@ router.get('/:id', function (req, res, next) {
 router.post('/login', function (req, res, next) {
 	User.findOne({email: req.body.email}).exec()
 	.then(function (user) {
-		console.log('user submit', req.body)
-		console.log('database', user)
 		if (!user) res.status(401).send('invalid email');
 		if (req.body.password === user.password) {
-			req.session.userId = user.email;
+			req.session.userId = user._id;
 			res.status(200).json(user);
 		} else {
 			res.status(401).send('invalid password')
@@ -63,6 +61,10 @@ router.post('/login', function (req, res, next) {
 	})
 });
 
+
+router.get('/auth/me', function (req, res, next) {
+	res.send(req.session.userId);
+})
 
 
 router.put('/:id', function (req, res, next) {

@@ -12,7 +12,12 @@ app.directive('navbar', function ($state, $location, AuthFactory) {
 			};
 			scope.logout = function () {
 				AuthFactory.logout();
+				AuthFactory.goHome();
 			}
 		}
 	}
 });
+//secret
+//ytwDFJckgB3tvo0pwD4bTpLn
+//clientId
+//834101702941-9nhfp6623bu62avnka00r9plqa6acl5s.apps.googleusercontent.com
